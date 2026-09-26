@@ -1,0 +1,582 @@
+:root{
+    --primary:#2C5EAD;
+    --secondary:#1591DC;
+    --accent:#4BB8FA;
+    --soft:#C4E2F5;
+    --white:#FFFFFF;
+    --text:#1F2937;
+    --text-light:#6B7280;
+    --radius:22px;
+}
+
+/* Global */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+html{
+    scroll-behavior:smooth;
+}
+body{
+    font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
+    background:
+        radial-gradient(circle at top left,
+        rgba(196,226,245,.65),
+        transparent 35%),
+        radial-gradient(circle at bottom right,
+        rgba(75,184,250,.10),
+        transparent 40%),
+        #F7FBFE;
+    color:var(--text);
+    min-height:100vh;
+}
+
+/* Navbar */
+.navbar-custom{
+    background:#fff;
+    position:sticky;
+    top:0;
+    z-index:999;
+    border-bottom:1px solid rgba(0,0,0,.05);
+    backdrop-filter:blur(12px);
+    box-shadow:0 6px 20px rgba(0,0,0,.04);
+    padding:16px 0;
+}
+.brand-title{
+    color:var(--primary);
+    font-weight:700;
+}
+.back-btn{
+    transition:.3s;
+}
+.back-btn:hover{
+    background:var(--primary);
+    border-color:var(--primary);
+    color:#fff;
+    transform:translateY(-2px);
+}
+
+/* Hero */
+.page-header{
+    padding:20px 0 14px;
+}
+.header-card{
+    position:relative;
+    overflow:hidden;
+    border-radius:22px;
+    padding:24px 30px;
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary),
+            var(--secondary)
+        );
+    color:#fff;
+    box-shadow:
+        0 16px 35px rgba(44,94,173,.15);
+}
+.header-card::before{
+    content:"";
+    position:absolute;
+    width:180px;
+    height:180px;
+    border-radius:50%;
+    background:rgba(255,255,255,.08);
+    right:-60px;
+    top:-60px;
+}
+.header-card::after{
+    content:"";
+    position:absolute;
+    width:110px;
+    height:110px;
+    border-radius:50%;
+    background:rgba(255,255,255,.05);
+    left:-35px;
+    bottom:-35px;
+}
+.header-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:5px 14px;
+    border-radius:999px;
+    background:rgba(255,255,255,.15);
+    margin-bottom:12px;
+    font-size:.78rem;
+}
+.header-card h2{
+    font-size:1.55rem;
+    font-weight:700;
+    margin-bottom:8px;
+}
+.header-card p{
+    max-width:520px;
+    margin-bottom:0;
+    opacity:.92;
+    line-height:1.6;
+    font-size:.93rem;
+}
+.header-icon{
+    width:86px;
+    height:86px;
+    margin:auto;
+    border-radius:50%;
+    background:rgba(255,255,255,.12);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    animation:floatIcon 4s ease-in-out infinite;
+}
+.header-icon i{
+    font-size:38px;
+}
+
+/* Content */
+.history-section{
+    padding:8px 0 60px;
+}
+.history-card{
+    background:#fff;
+    border-radius:24px;
+    overflow:hidden;
+    box-shadow:
+        0 16px 35px rgba(44,94,173,.10);
+    animation:fadeUp .6s ease;
+}
+
+/* Filter */
+.filter-wrapper{
+    display:flex;
+    justify-content:flex-end;
+    margin-bottom:18px;
+}
+.filter-box{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    background:#fff;
+    padding:10px 14px;
+    border-radius:14px;
+    box-shadow:
+        0 8px 22px rgba(44,94,173,.08);
+}
+.filter-box span{
+    color:var(--text-light);
+    font-size:.88rem;
+    white-space:nowrap;
+}
+.filter-box select{
+    width:160px;
+    border-radius:10px;
+    border:1px solid #D9E7F5;
+    font-size:.88rem;
+}
+.filter-box select:focus{
+    border-color:var(--secondary);
+    box-shadow:0 0 0 .2rem rgba(21,145,220,.12);
+}
+
+/* Tab */
+.history-tabs{
+    padding:22px;
+    border-bottom:1px solid #EEF3F8;
+}
+.history-tabs .nav{
+    gap:12px;
+}
+.history-tabs .nav-link{
+    border:none;
+    border-radius:999px;
+    padding:12px 18px;
+    color:var(--text-light);
+    background:#F5F9FD;
+    font-weight:600;
+    transition:.3s;
+}
+.history-tabs .nav-link:hover{
+    color:var(--primary);
+    background:#EAF5FD;
+}
+.history-tabs .nav-link.active{
+    background:linear-gradient(
+        135deg,
+        var(--primary),
+        var(--secondary)
+    );
+    color:#fff;
+}
+.tab-count{
+    margin-left:8px;
+    background:rgba(255,255,255,.18);
+    padding:2px 8px;
+    border-radius:999px;
+    font-size:.75rem;
+}
+
+/* History Item */
+.tab-content{
+    padding:0;
+}
+.history-item{
+    display:block;
+    text-decoration:none;
+    color:inherit;
+    padding:22px 26px;
+    border-bottom:1px solid #EEF3F8;
+    transition:all .3s ease;
+    background:#fff;
+}
+.history-item:last-child{
+    border-bottom:none;
+}
+.history-item:hover{
+    background:#F8FBFF;
+    transform:translateY(-2px);
+    box-shadow:inset 4px 0 0 var(--primary);
+}
+.history-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:14px;
+    gap:12px;
+    flex-wrap:wrap;
+}
+.history-top small{
+    color:var(--text-light);
+    font-size:.82rem;
+}
+
+/* Category Badge */
+.category-badge{
+    display:inline-flex;
+    align-items:center;
+    padding:6px 14px;
+    border-radius:999px;
+    background:rgba(44,94,173,.10);
+    color:var(--primary);
+    font-size:.78rem;
+    font-weight:600;
+}
+
+/* Thread Title */
+.history-item h5{
+    color:var(--text);
+    font-size:1.08rem;
+    font-weight:700;
+    margin-bottom:10px;
+    transition:.3s;
+}
+.history-item:hover h5{
+    color:var(--primary);
+}
+.history-item p{
+    margin:0;
+    color:var(--text-light);
+    line-height:1.7;
+    font-size:.92rem;
+    display:-webkit-box;
+    -webkit-line-clamp:2;
+    -webkit-box-orient:vertical;
+    overflow:hidden;
+}
+
+/* Comment */
+.reply-title{
+    margin-bottom:14px;
+    display:flex;
+    flex-direction:column;
+    gap:5px;
+}
+.reply-title span{
+    font-size:.82rem;
+    color:var(--text-light);
+}
+.reply-title strong{
+    color:var(--primary);
+    font-size:.95rem;
+}
+.reply-box{
+    background:#F7FBFE;
+    border-left:4px solid var(--primary);
+    border-radius:12px;
+    padding:16px;
+    color:var(--text);
+    line-height:1.7;
+    font-size:.92rem;
+}
+.history-footer{
+    margin-top:14px;
+    display:flex;
+    justify-content:flex-end;
+}
+.history-footer small{
+    color:var(--text-light);
+}
+
+/* Empty State */
+.empty-state{
+    text-align:center;
+    padding:70px 20px;
+}
+.empty-icon{
+    width:90px;
+    height:90px;
+    margin:auto auto 22px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:linear-gradient(
+        135deg,
+        rgba(44,94,173,.12),
+        rgba(75,184,250,.20)
+    );
+    color:var(--primary);
+    font-size:2.2rem;
+}
+.empty-state h4{
+    color:var(--text);
+    font-weight:700;
+    margin-bottom:10px;
+}
+.empty-state p{
+    color:var(--text-light);
+    max-width:360px;
+    margin:auto;
+    line-height:1.7;
+}
+
+/* Animation */
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(25px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+@keyframes floatIcon{
+    0%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-8px);
+    }
+    100%{
+        transform:translateY(0);
+    }
+}
+
+    /* Scrollbar */
+    ::-webkit-scrollbar{
+        width:9px;
+    }
+    ::-webkit-scrollbar-track{
+        background:#EEF6FC;
+    }
+    ::-webkit-scrollbar-thumb{
+        background:linear-gradient(
+            var(--primary),
+            var(--accent)
+        );
+        border-radius:20px;
+    }
+
+    /* Responsive */
+   /* ==========================================
+   PERBAIKAN RESPONSIVE KHUSUS MOBILE (HP)
+   ========================================== */
+@media (max-width: 768px) {
+    .page-header {
+        padding: 12px 0 8px;
+    }
+    
+    /* Mencegah overflow horizontal pada card hero */
+    .header-card {
+        padding: 20px;
+        text-align: left;
+        border-radius: 16px;
+    }
+    
+    .header-card h2 {
+        font-size: 1.3rem;
+        margin-bottom: 6px;
+    }
+    
+    .header-card p {
+        font-size: 0.85rem;
+        line-height: 1.5;
+    }
+
+    /* Sembunyikan icon besar di kanan pada HP */
+    .header-icon {
+        display: none !important; 
+    }
+
+    /* FILTER: Diperkecil, diletakkan di sebelah kanan, tidak full width */
+    .filter-wrapper {
+        justify-content: flex-end; /* Taruh di sebelah kanan */
+        margin-bottom: 14px;
+        display: flex;
+        width: 100%;
+    }
+
+    .filter-box {
+        display: inline-flex; /* Agar lebarnya mengikuti konten, tidak full */
+        width: auto; 
+        gap: 8px;
+        padding: 6px 10px;
+        border-radius: 10px;
+        background: #fff;
+        box-shadow: 0 4px 12px rgba(44, 94, 173, 0.06);
+    }
+
+    .filter-box span {
+        font-size: 0.78rem;
+    }
+
+    .filter-box select {
+        width: 110px; /* Dipersempit agar pas di HP */
+        font-size: 0.78rem;
+        padding: 2px 4px;
+        height: auto;
+    }
+
+    /* CONTAINER UTAMA RIWAYAT */
+    .history-card {
+        border-radius: 16px;
+        padding: 0; /* Pastikan pembungkus utamanya pas */
+    }
+
+    /* TABS NAVIGASI */
+    .history-tabs {
+        padding: 14px; /* Memberi ruang di sekitar tab */
+        border-bottom: 1px solid #EEF3F8;
+    }
+
+    .history-tabs .nav {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        gap: 8px;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 2px;
+    }
+
+    /* Hilangkan scrollbar agar tetap minimalis */
+    .history-tabs .nav::-webkit-scrollbar {
+        display: none;
+    }
+
+    .history-tabs .nav-item {
+        flex: 1 1 0%; /* Membagi rata lebar tab agar seimbang */
+        min-width: 120px;
+    }
+
+    .history-tabs .nav-link {
+        width: 100%;
+        text-align: center;
+        padding: 10px 8px;
+        font-size: 0.8rem;
+        white-space: nowrap;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* KONTEN RIWAYAT (LIST ITEM) */
+    .history-item {
+        padding: 18px 16px; /* Tambah padding agar konten tidak terpotong ke pinggir */
+    }
+
+    /* Kategori & Tanggal sebaris */
+    .history-top {
+        display: flex !important;
+        flex-direction: row !important; 
+        justify-content: space-between !important;
+        align-items: center !important;
+        margin-bottom: 10px;
+        gap: 8px;
+    }
+
+    .category-badge {
+        padding: 4px 10px;
+        font-size: 0.72rem;
+        white-space: nowrap;
+    }
+
+    .history-top small {
+        font-size: 0.75rem;
+        color: var(--text-light);
+        white-space: nowrap;
+    }
+
+    .history-item h5 {
+        font-size: 0.95rem;
+        line-height: 1.4;
+        margin-bottom: 8px;
+        font-weight: 700;
+        word-wrap: break-word; /* Mencegah judul panjang merusak layout */
+    }
+
+    .history-item p {
+        font-size: 0.85rem;
+        line-height: 1.5;
+        color: var(--text-light);
+    }
+
+    /* Reply Box */
+    .reply-title strong {
+        font-size: 0.88rem;
+    }
+
+    .reply-box {
+        padding: 12px;
+        font-size: 0.85rem;
+        border-radius: 8px;
+    }
+}
+
+@media (max-width: 576px) {
+    .navbar-custom {
+        padding: 12px 0;
+    }
+
+    .brand-title {
+        font-size: 0.95rem;
+    }
+
+    .back-btn {
+        padding: 4px 10px !important;
+        font-size: 0.75rem !important;
+    }
+
+    .history-card {
+        border-radius: 14px;
+    }
+
+    .empty-state {
+        padding: 40px 15px;
+    }
+
+    .empty-icon {
+        width: 70px;
+        height: 70px;
+        font-size: 1.6rem;
+        margin-bottom: 16px;
+    }
+
+    .empty-state h4 {
+        font-size: 1.1rem;
+    }
+
+    .empty-state p {
+        font-size: 0.82rem;
+    }
+}

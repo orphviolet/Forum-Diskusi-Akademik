@@ -1,0 +1,170 @@
+/* ==========================================================
+   FIXED LAYOUT & INDEPENDENT SCROLLING
+   ========================================================== */
+
+/* Pastikan HTML & Body berukuran 100% viewport dan tidak meluap */
+html, body {
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Mencegah scrollbar utama di browser */
+}
+
+/* Container utama pembungkus seluruh aplikasi */
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* ==========================================================
+   FIXED TOPBAR (NAVBAR)
+   ========================================================== */
+.topbar {
+    height: 82px;
+    flex-shrink: 0; /* Mencegah navbar tertekan/mengecil */
+    z-index: 1000;
+}
+
+/* ==========================================================
+   MAIN CONTAINER (SIDEBAR + CONTENT)
+   ========================================================== */
+.main-container {
+    display: flex;
+    flex: 1; /* Mengisi sisa ruang vertikal di bawah navbar */
+    height: calc(100vh - 82px);
+    overflow: hidden; /* Mencegah container membengkak */
+    position: relative;
+}
+
+/* ==========================================================
+   FIXED SIDEBAR
+   ========================================================== */
+.sidebar {
+    width: 235px;
+    height: 100%; /* Memenuhi tinggi main-container */
+    flex-shrink: 0; /* Mencegah lebar sidebar berubah */
+    overflow-y: auto; /* Jika menu sidebar sangat banyak, sidebar tetap bisa di-scroll tersendiri */
+}
+
+/* ==========================================================
+   SCROLLABLE CONTENT AREA
+   ========================================================== */
+.content-area {
+    flex: 1; /* Mengisi sisa ruang horizontal */
+    height: 100%; /* Memenuhi tinggi main-container */
+    overflow-y: auto; /* HANYA area konten ini yang di-scroll */
+    padding: 32px;
+}
+
+/* Custom Scrollbar Styling untuk Content Area */
+.content-area::-webkit-scrollbar {
+    width: 8px;
+}
+
+.content-area::-webkit-scrollbar-thumb {
+    background: #bfc8da;
+    border-radius: 10px;
+}
+
+.content-area::-webkit-scrollbar-thumb:hover {
+    background: #2F74C9;
+}
+
+.content-area::-webkit-scrollbar-track {
+    background: #EAF2FB;
+}
+
+/* =========================================================
+   RESPONSIVE — SIDEBAR JADI MENU NAVIGASI DI HP
+   (ditulis ulang di sini, khusus scope mobile, supaya tidak
+   ketiban aturan .sidebar tetap di atas yang unconditional)
+   ========================================================= */
+@media screen and (max-width: 992px) {
+    .menu-toggle {
+        display: inline-flex;
+    }
+
+    .sidebar {
+        position: fixed;
+        top: 82px;
+        left: 0;
+        height: calc(100vh - 82px);
+        width: 260px;
+        max-width: 80vw;
+        transform: translateX(-100%);
+        transition: transform 0.28s ease;
+        z-index: 1050;
+        box-shadow: 10px 0 28px rgba(15, 23, 42, 0.18);
+    }
+
+    .sidebar.is-open {
+        transform: translateX(0);
+    }
+
+    .sidebar-overlay.is-open {
+        display: block;
+    }
+
+    .content-area {
+        padding: 20px;
+    }
+
+    /* Header halaman: judul & tombol tambah ditumpuk di layar sempit */
+    .content-area > .d-flex.justify-content-between {
+        flex-direction: column;
+        align-items: stretch !important;
+        gap: 12px;
+    }
+
+    .content-area > .d-flex.justify-content-between .btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .topbar {
+        height: 68px;
+        padding: 0 16px;
+    }
+
+    .main-container {
+        height: calc(100vh - 68px);
+    }
+
+    .sidebar {
+        top: 68px;
+        height: calc(100vh - 68px);
+    }
+
+    .logo-section span {
+        display: none;
+    }
+
+    .content-area {
+        padding: 14px;
+    }
+
+    .content-area h3 {
+        font-size: 20px;
+    }
+
+    .content-area p.text-muted {
+        font-size: 13px;
+    }
+
+    .table-siswa th,
+    table th,
+    table td {
+        font-size: 12px;
+        padding: 8px 10px !important;
+    }
+
+    .btn-outline-warning,
+    .btn-outline-danger {
+        padding: 4px 8px;
+        font-size: 12px;
+    }
+}

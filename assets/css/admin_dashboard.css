@@ -1,0 +1,473 @@
+/* ==========================================================
+   RESET & BASE
+   ========================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #EAF2FB;
+    font-family: 'Segoe UI', sans-serif;
+    color: #2C3E50;
+    height: 100vh;
+    overflow: hidden; /* Mencegah seluruh halaman di-scroll */
+}
+
+.wrapper {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* ==========================================================
+   TOPBAR (FIXED DI ATAS)
+   ========================================================== */
+.topbar {
+    height: 82px;
+    background: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 28px;
+    border-bottom: 1px solid #E4EAF1;
+    flex-shrink: 0; /* Agar tinggi topbar tidak berkurang */
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.logo-section img {
+    width: 48px;
+    height: 48px;
+}
+
+.logo-section h4 {
+    margin: 0;
+    color: #2C5EAD;
+    font-size: 31px;
+    font-weight: 700;
+}
+
+.logo-section span {
+    color: #6B7280;
+    font-size: 15px;
+}
+
+.admin-profile {
+    font-size: 46px;
+    color: #B8C2D4;
+}
+
+/* Tombol hamburger — hanya tampil di mobile/tablet */
+.menu-toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    border: none;
+    background: #F3F8FF;
+    color: #2C5EAD;
+    border-radius: 14px;
+    font-size: 24px;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.menu-toggle:active {
+    background: #EDF5FF;
+}
+
+/* ==========================================================
+   LAYOUT
+   ========================================================== */
+.main-container {
+    display: flex;
+    flex: 1;
+    overflow: hidden; /* Mengunci layout utama */
+    position: relative;
+}
+
+/* ==========================================================
+   SIDEBAR (FIXED DI KIRI)
+   ========================================================== */
+.sidebar {
+    width: 235px;
+    background: #FFFFFF;
+    border-right: 1px solid #E7ECF3;
+    padding: 26px 18px;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0; /* Ukuran sidebar tetap, tidak memenci */
+    overflow-y: auto; /* Kalau menu sidebar banyak, tetap bisa scroll di dalam sidebar saja */
+}
+
+.sidebar-item {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    text-decoration: none;
+    color: #444444;
+    padding: 16px;
+    border-radius: 18px;
+    margin-bottom: 14px;
+    transition: 0.25s;
+}
+
+.sidebar-item:hover {
+    background: #F3F8FF;
+    color: #2C5EAD;
+}
+
+.sidebar-item.active {
+    background: #EDF5FF;
+    color: #2C5EAD;
+    font-weight: 700;
+}
+
+.icon-box {
+    width: 58px;
+    height: 58px;
+    border-radius: 18px;
+    background: #F4F7FC;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+}
+
+.sidebar-item.active .icon-box {
+    background: #2F74C9;
+    color: #ffffff;
+}
+
+.sidebar-bottom {
+    margin-top: auto;
+}
+
+.logout {
+    color: #F04444;
+}
+
+.logout-icon {
+    background: #FFECEC;
+    color: #F04444;
+}
+
+/* Overlay gelap di belakang sidebar mobile */
+.sidebar-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.45);
+    z-index: 1040;
+}
+
+/* ==========================================================
+   CONTENT (HANYA AREA INI YANG BISA DI-SCROLL)
+   ========================================================== */
+.content-area {
+    flex: 1;
+    padding: 32px;
+    overflow-y: auto; /* Aktifkan scroll khusus di area konten */
+    height: 100%;
+}
+
+/* Custom Scrollbar untuk Content Area */
+.content-area::-webkit-scrollbar {
+    width: 8px;
+}
+
+.content-area::-webkit-scrollbar-thumb {
+    background: #bfc8da;
+    border-radius: 10px;
+}
+
+.content-area::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/* ==========================================================
+   WELCOME CARD
+   ========================================================== */
+.welcome-card {
+    background: linear-gradient(90deg, #1F3D72 0%, #2F74C9 100%);
+    border-radius: 28px;
+    padding: 34px 40px;
+    display: flex;
+    align-items: center;
+    gap: 26px;
+    color: #ffffff;
+    margin-bottom: 38px;
+    box-shadow: 0 12px 25px rgba(44, 94, 173, 0.18);
+}
+
+.welcome-avatar {
+    width: 84px;
+    height: 84px;
+    border-radius: 50%;
+    background: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 62px;
+    color: #BFC6D4;
+    flex-shrink: 0;
+}
+
+.welcome-text h2 {
+    margin: 0;
+    font-size: 42px;
+    font-weight: 700;
+}
+
+.welcome-text p {
+    margin-top: 10px;
+    margin-bottom: 0;
+    font-size: 20px;
+    opacity: 0.95;
+}
+
+/* ==========================================================
+   STAT CARD
+   ========================================================== */
+.stat-card {
+    background: #ffffff;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+    transition: 0.25s;
+}
+
+.stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 30px rgba(44, 94, 173, 0.15);
+}
+
+.stat-top {
+    height: 16px;
+    background: #2F74C9;
+}
+
+.stat-body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px;
+}
+
+.stat-body h6 {
+    margin-bottom: 10px;
+    color: #555555;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.stat-body h2 {
+    margin: 0;
+    color: #2F5FB3;
+    font-size: 54px;
+    font-weight: 700;
+}
+
+.stat-icon {
+    width: 72px;
+    height: 72px;
+    border-radius: 18px;
+    background: #EEF7FF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #2F74C9;
+    font-size: 34px;
+}
+
+/* ==========================================================
+   RESPONSIVE DESIGN
+   ========================================================== */
+@media (max-width: 1200px) {
+    .content-area {
+        padding: 28px;
+    }
+    .welcome-text h2 {
+        font-size: 34px;
+    }
+    .welcome-text p {
+        font-size: 18px;
+    }
+    .stat-body h2 {
+        font-size: 46px;
+    }
+}
+
+@media (max-width: 992px) {
+    /* Sidebar berubah jadi menu navigasi off-canvas: sembunyi
+       secara default, baru muncul saat tombol hamburger diklik */
+    .menu-toggle {
+        display: inline-flex;
+    }
+
+    .sidebar {
+        position: fixed;
+        top: 82px; /* sejajar dengan tinggi topbar */
+        left: 0;
+        height: calc(100vh - 82px);
+        width: 260px;
+        max-width: 80vw;
+        border-radius: 0;
+        transform: translateX(-100%);
+        transition: transform 0.28s ease;
+        z-index: 1050;
+        box-shadow: 10px 0 28px rgba(15, 23, 42, 0.18);
+    }
+
+    .sidebar.is-open {
+        transform: translateX(0);
+    }
+
+    .sidebar-overlay.is-open {
+        display: block;
+    }
+
+    .welcome-card {
+        padding: 26px 28px;
+        text-align: left;
+    }
+}
+
+@media (max-width: 768px) {
+    .topbar {
+        padding: 0 16px;
+    }
+    .logo-section {
+        gap: 10px;
+    }
+    .logo-section img {
+        width: 40px;
+        height: 40px;
+    }
+    .logo-section h4 {
+        font-size: 24px;
+    }
+    .logo-section span {
+        font-size: 13px;
+    }
+    .admin-profile {
+        font-size: 38px;
+    }
+    .content-area {
+        padding: 20px;
+    }
+    .welcome-card {
+        border-radius: 22px;
+    }
+    .welcome-text h2 {
+        font-size: 30px;
+    }
+    .welcome-text p {
+        font-size: 16px;
+    }
+    .stat-body {
+        padding: 20px;
+    }
+    .stat-body h6 {
+        font-size: 20px;
+    }
+    .stat-body h2 {
+        font-size: 38px;
+    }
+    .stat-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 576px) {
+    body {
+        font-size: 14px;
+    }
+    .topbar {
+        height: 68px;
+    }
+    .logo-section span {
+        display: none;
+    }
+    .content-area {
+        padding: 16px;
+    }
+    .sidebar {
+        top: 68px;
+        height: calc(100vh - 68px);
+        padding: 20px 15px;
+    }
+    .welcome-card {
+        padding: 18px 20px;
+        gap: 14px;
+        text-align: left;
+    }
+    .welcome-avatar {
+        width: 54px;
+        height: 54px;
+        font-size: 36px;
+        flex-shrink: 0;
+    }
+    .welcome-text h2 {
+        font-size: 19px;
+    }
+    .welcome-text p {
+        font-size: 13px;
+    }
+
+    /* Kartu statistik jadi 2 kolom (2 di atas, 2 di bawah) & lebih ringkas */
+    .row.g-4 {
+        --bs-gutter-x: 0.7rem;
+        --bs-gutter-y: 0.7rem;
+    }
+    .stat-card {
+        border-radius: 16px;
+    }
+    .stat-top {
+        height: 8px;
+    }
+    .stat-body {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 14px 10px;
+        gap: 8px;
+    }
+    .stat-body h6 {
+        font-size: 12px;
+        margin-bottom: 2px;
+    }
+    .stat-body h2 {
+        font-size: 22px;
+    }
+    .stat-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+        border-radius: 12px;
+    }
+}
+
+/* ==========================================================
+   SMOOTH TRANSITIONS & SELECTION
+   ========================================================== */
+.sidebar,
+.stat-card,
+.welcome-card {
+    transition: 0.25s ease;
+}
+
+::selection {
+    background: #2F74C9;
+    color: #ffffff;
+}

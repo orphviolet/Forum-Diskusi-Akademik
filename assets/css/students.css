@@ -1,0 +1,241 @@
+/* ==========================================================
+   HALAMAN: GROWTH PENGGUNA (students.php)
+   Layout dasar (topbar, sidebar, hamburger menu, scroll area)
+   sudah diatur di admin_dashboard.css — file ini khusus
+   komponen yang hanya dipakai di halaman ini.
+   ========================================================== */
+
+.report-box {
+    background: #FFFFFF;
+    border: 1px solid #E9ECEF;
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 24px;
+}
+
+/* ===================== KARTU RINGKASAN ===================== */
+.stat-mini {
+    background-color: #F8F9FA;
+    border-radius: 10px;
+    padding: 14px 16px;
+    text-align: center;
+}
+
+.stat-mini h3 {
+    font-weight: 700;
+    margin: 4px 0 0;
+    color: #1A1A1A;
+}
+
+.stat-mini small {
+    color: #6C757D;
+    font-size: 12px;
+}
+
+.stat-mini.growth-up {
+    background-color: #D1E7DD;
+}
+
+.stat-mini.growth-up h3,
+.stat-mini.growth-up small {
+    color: #0F5132;
+}
+
+.stat-mini.growth-down {
+    background-color: #F8D7DA;
+}
+
+.stat-mini.growth-down h3,
+.stat-mini.growth-down small {
+    color: #842029;
+}
+
+.stat-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+}
+
+.stat-col {
+    flex: 1 1 160px;
+    max-width: 220px;
+}
+
+/* ===================== TABEL ===================== */
+.table-siswa th {
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #6C757D;
+    background-color: #F8F9FA;
+}
+
+.table-siswa td {
+    font-size: 13px;
+    vertical-align: middle;
+}
+
+/* ===================== LEGEND & CHART ===================== */
+.legend-chart {
+    display: flex;
+    gap: 16px;
+    font-size: 12px;
+    color: #6C757D;
+    margin-bottom: 8px;
+}
+
+.legend-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+    display: inline-block;
+    margin-right: 4px;
+}
+
+.chart-wrapper {
+    position: relative;
+    width: 100%;
+    height: 260px;
+}
+
+/* =========================================================
+   RESPONSIVE — TABLET & MOBILE
+   ========================================================= */
+@media screen and (max-width: 768px) {
+    .report-box {
+        padding: 18px;
+        border-radius: 10px;
+    }
+
+    .chart-wrapper {
+        height: 220px;
+    }
+
+    .legend-chart {
+        gap: 10px;
+        font-size: 11px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .report-box {
+        padding: 14px;
+        margin-bottom: 16px;
+    }
+
+    /* Kartu ringkasan dibuat kecil & tetap sejajar dalam satu baris */
+    .stat-row {
+        flex-wrap: nowrap;
+        gap: 6px;
+        justify-content: stretch;
+    }
+
+    .stat-col {
+        flex: 1 1 0;
+        max-width: none;
+        min-width: 0;
+    }
+
+    .stat-mini {
+        padding: 8px 4px;
+        border-radius: 8px;
+    }
+
+    .stat-mini h3 {
+        font-size: 15px;
+        margin-top: 2px;
+    }
+
+    .stat-mini small {
+        font-size: 8.5px;
+        line-height: 1.15;
+        display: block;
+        white-space: normal;
+    }
+
+    .chart-wrapper {
+        height: 190px;
+    }
+
+    .table-siswa th,
+    .table-siswa td {
+        font-size: 11px;
+    }
+}
+
+/* =========================================================
+   PRINT
+   ========================================================= */
+@media print {
+    .no-print {
+        display: none !important;
+    }
+
+    .sidebar,
+    .topbar {
+        display: none !important;
+    }
+
+    .wrapper,
+    .main-container {
+        display: block !important;
+    }
+
+    .content-area {
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    body {
+        background: #FFFFFF;
+    }
+
+    .report-box {
+        border: none;
+        padding: 0;
+        box-shadow: none;
+        page-break-inside: avoid;
+        margin-bottom: 16px;
+    }
+
+    .table-responsive {
+        overflow: visible !important;
+    }
+
+    table {
+        width: 100% !important;
+    }
+
+    canvas {
+        max-width: 100% !important;
+    }
+
+    .stat-row {
+        flex-wrap: nowrap !important;
+        gap: 8px !important;
+    }
+
+    .stat-col {
+        flex: 1 1 0 !important;
+        max-width: none !important;
+    }
+
+    .stat-mini {
+        padding: 10px 8px !important;
+    }
+
+    .stat-mini h3 {
+        font-size: 18px !important;
+    }
+
+    .stat-mini small {
+        font-size: 10px !important;
+    }
+
+    @page {
+        size: A4 portrait;
+        margin: 1.5cm;
+    }
+}

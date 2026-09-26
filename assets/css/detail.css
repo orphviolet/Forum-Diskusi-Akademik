@@ -1,0 +1,299 @@
+body.bg-achievement-global{
+    background:#edf2f8;
+}
+
+body.bg-achievement-global{
+    padding-top: 90px;
+}
+
+.reward-main-box{
+    width:100%;
+    max-width:720px;
+    margin:auto;
+    background:#fff;
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
+}
+
+/* ===========================
+   NAVBAR DETAIL
+=========================== */
+
+.navbar-custom{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1050;
+
+    background: #fff;
+    border-bottom: 1px solid var(--border);
+}
+
+.brand-title {
+    color: #2C5EAD;
+    font-weight: 700;
+}
+
+/* HEADER */
+
+.reward-header{
+    background:#4CB3F7;
+    display:flex;
+    align-items:center;
+    gap:18px;
+    padding:18px 28px;
+}
+
+.reward-detail-icon-box{
+    width:60px;
+    height:60px;
+    flex-shrink:0;
+}
+
+.reward-detail-icon-box img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+}
+
+.reward-header-content h2{
+    color:#fff;
+    font-size:30px;
+    font-weight:700;
+    margin:0;
+}
+
+.reward-header-content p{
+    margin-top:6px;
+    color:#eef8ff;
+    font-size:13px;
+    line-height:1.4;
+    margin-bottom:0;
+}
+
+/* BODY */
+
+.reward-body{
+    padding:24px;
+}
+
+.section-label{
+    display:inline-block;
+    background:#4CB3F7;
+    color:#fff;
+    border-radius:30px;
+    padding:6px 28px;
+    min-width:160px;
+    text-align:center;
+    font-weight:600;
+    margin-bottom:18px;
+}
+
+.benefit-list-new,
+.terms-list-new{
+    padding:0;
+    margin:0;
+    list-style:none;
+}
+
+.benefit-list-new li{
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+    margin-bottom:10px;
+}
+
+.benefit-list-new i{
+    color:#000;
+}
+
+.terms-list-new li{
+    position:relative;
+    padding-left:18px;
+    margin-bottom:8px;
+}
+
+.terms-list-new li::before{
+    content:"●";
+    position:absolute;
+    left:0;
+}
+
+/* FOOTER */
+
+.reward-footer{
+    border-top:1px solid #ececec;
+    padding:18px;
+    text-align:center;
+}
+
+.btn-exchange{
+    width:210px;
+    border-radius:30px;
+    padding:10px;
+    font-weight:600;
+}
+
+.btn-primary.btn-exchange{
+    background:#4CB3F7;
+    border:none;
+}
+
+.btn-secondary.btn-exchange{
+    background:#98A1B2;
+    border:none;
+}
+
+/* ==================================================
+   RESPONSIVE TABLET
+================================================== */
+@media (max-width: 768px){
+
+    body.bg-achievement-global{
+        padding-top:75px;
+    }
+
+    .container{
+        padding-left:12px !important;
+        padding-right:12px !important;
+    }
+
+    .navbar-custom{
+        padding:10px 0 !important;
+    }
+
+    .brand-title{
+        font-size:17px !important;
+    }
+
+    .reward-main-box{
+        border-radius:12px;
+    }
+
+    .reward-header{
+        padding:18px;
+        gap:14px;
+    }
+
+    .reward-detail-icon-box{
+        width:54px;
+        height:54px;
+    }
+
+    .reward-header-content h2{
+        font-size:22px;
+    }
+
+    .reward-header-content p{
+        font-size:13px;
+    }
+
+    .reward-body{
+        padding:20px;
+    }
+
+    .section-label{
+        min-width:140px;
+        font-size:13px;
+        padding:6px 20px;
+    }
+
+    .benefit-list-new li,
+    .terms-list-new li{
+        font-size:14px;
+        line-height:1.6;
+    }
+
+    .btn-exchange{
+        width:100%;
+    }
+
+}
+
+
+/* ==================================================
+   RESPONSIVE MOBILE
+================================================== */
+@media (max-width:576px){
+
+    body.bg-achievement-global{
+        padding-top:70px;
+    }
+
+    .navbar-custom .container{
+        padding-left:12px !important;
+        padding-right:12px !important;
+    }
+
+    .navbar .btn{
+        font-size:12px;
+        padding:6px 12px;
+    }
+
+    .brand-title{
+        font-size:15px !important;
+    }
+
+    .reward-main-box{
+        border-radius:10px;
+    }
+
+    .reward-header{
+        flex-direction:column;
+        text-align:center;
+        padding:20px 16px;
+    }
+
+    .reward-header-content h2{
+    font-size:18px;
+    line-height:1.35;
+    margin-top:8px;
+    margin-bottom:8px;
+    font-weight:700;
+}
+
+.reward-header-content p{
+    font-size:12px;
+    line-height:1.5;
+    max-width:260px;
+    margin:0 auto;
+}
+
+.reward-detail-icon-box{
+    width:58px;
+    height:58px;
+}
+
+    .reward-body{
+        padding:18px 16px;
+    }
+
+    .section-label{
+        width:100%;
+        min-width:unset;
+        font-size:13px;
+        margin-bottom:16px;
+    }
+
+    .benefit-list-new li{
+        gap:8px;
+    }
+
+    .benefit-list-new li,
+    .terms-list-new li{
+        font-size:13px;
+    }
+
+    .reward-footer{
+        padding:16px;
+    }
+
+    .btn-exchange{
+        width:100%;
+        font-size:14px;
+        padding:12px;
+    }
+
+}
