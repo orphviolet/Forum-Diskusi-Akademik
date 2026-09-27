@@ -4,14 +4,16 @@ Forum diskusi akademik berbasis web untuk SMA Negeri 3 Nabire. Sistemnya dibuat 
 Guru juga hadir secara anonim di forum, bisa ikut melihat, menjawab, dan yang paling penting, memverifikasi valid atau tidaknya jawaban yang beredar di diskusi. Ada juga fitur vote dan report untuk diskusi yang dianggap bagus/membantu, jadi konten yang berkualitas bisa lebih terlihat.
 Selain itu ada sistem poin, siswa yang aktif berdiskusi dan jawabannya diverifikasi guru dapat poin yang bisa ditukar hadiah digital.
 Sistem dibuat menggunakan SDLC (Waterfall):
-1. Analisis SWOT
-   <img width="264" height="292" alt="image" src="https://github.com/user-attachments/assets/7f0fe0f6-17bb-4518-8394-6265537e8e7f" />
 
-2. Desain Sistem
+1. Analisis SWOT
+   
+<img width="264" height="292" alt="image" src="https://github.com/user-attachments/assets/7f0fe0f6-17bb-4518-8394-6265537e8e7f" />
+
+3. Desain Sistem
 Use Case Diagram:
 <img width="454" height="289" alt="image" src="https://github.com/user-attachments/assets/ed715ab3-1550-4c15-9925-c74cb43b917b" />
 	 
-   Use Case Description:
+Use Case Description:
 <img width="454" height="233" alt="image" src="https://github.com/user-attachments/assets/6180956f-3560-4d8d-ba15-573760d91f27" />
 
 Activity Diagram:
