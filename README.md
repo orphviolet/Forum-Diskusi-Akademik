@@ -24,6 +24,7 @@ Activity Diagram:
 <img width="320" height="269" alt="image" src="https://github.com/user-attachments/assets/406d0a75-fd89-45b8-a446-5e17b0eca633" />
 
 Entity Relationship Diagram:
+
 <img width="458" height="233" alt="image" src="https://github.com/user-attachments/assets/e91079d8-3009-4f7d-80ac-60ed030987f9" />
 
 Relasi Database:
